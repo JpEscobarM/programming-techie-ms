@@ -1,9 +1,12 @@
 package com.techie.microservices.product.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.techie.microservices.product.dto.ProductRequest;
+import com.techie.microservices.product.dto.ProductResponse;
 import com.techie.microservices.product.model.Product;
 import com.techie.microservices.product.repository.ProductRepository;
 
@@ -18,7 +21,7 @@ public class ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	public Product createProduct(ProductRequest prodRequest) {
+	public ProductResponse createProduct(ProductRequest prodRequest) {
 	//Product p = new Product(prodRequest.id(),prodRequest.name(),prodRequest.description(),prodRequest.price());
 		
 		Product product = Product.builder()
@@ -30,9 +33,15 @@ public class ProductService {
 		productRepository.save(product);
 		
 		log.info("Product created successfully");
-		return product;
+		return new ProductResponse(product.getId(),product.getName(),product.getDescription(),product.getPrice());
 	}
 	
+	public List<ProductResponse> getAllProducts(){
+		return productRepository.findAll()
+				.stream()
+				.map(product -> new ProductResponse(product.getId(),product.getName(),product.getDescription(),product.getPrice()))
+				.toList();	
+	}
 	
 	
 	
