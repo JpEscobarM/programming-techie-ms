@@ -32,14 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 
-# Ignorar arquivos temporários do MySQL
-order-service/mysql/*.cnf
-order-service/mysql/*.index
-order-service/mysql/*.sock
-order-service/mysql/ib_*
-order-service/mysql/binlog.*
-order-service/mysql/#*
-order-service/mysql/*.err
-order-service/mysql/*.pid
-order-service/mysql/*.log
-order-service/mysql/*.tmp
+# Ignora tudo que é gerado em order-service/mysql
+order-service/mysql/*
+
+# Exceto o .keep (para manter a pasta no repositório)
+!order-service/mysql/.keep
