@@ -35,5 +35,14 @@ build/
 # Ignora tudo que é gerado em order-service/mysql
 order-service/mysql/*
 
-# Exceto o .keep (para manter a pasta no repositório)
-!order-service/mysql/.keep
+
+# docker
+*.log
+docker-compose.override.yml
+.env
+.env.*
+.docker/
+tmp/
+volumes/
+data/
+logs/
