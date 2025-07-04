@@ -33,7 +33,7 @@ build/
 .vscode/
 
 # Ignora tudo que é gerado em order-service/mysql
-order-service/mysql/*
+order-service/mysql/
 
 
 # docker
