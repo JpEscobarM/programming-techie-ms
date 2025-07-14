@@ -1,7 +1,7 @@
 services:
   mysql:
     image: mysql:8.3.0
-    container_name: mysql
+    container_name: inventory-mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
