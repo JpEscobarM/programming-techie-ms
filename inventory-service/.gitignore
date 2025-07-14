@@ -34,4 +34,4 @@ build/
 
 ### ignora pasta mysql do docker###
 
-**/mysql/
+**/mysql-inventory-service/
