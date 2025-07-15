@@ -13,16 +13,9 @@ public class InventoryService {
 	@Autowired
 	private InventoryRepository inventoryRepository;
 	
-	public Inventory addInventory(InventoryRequest ir) {
+	public boolean isInStock(String skuCode, Integer quantity) {
 		
-		
-		Inventory inventory = new Inventory();
-		
-		
-		inventory.setSku_code(ir.sku_code());
-		inventory.setQuantity(ir.quantity());
-		
-		return inventoryRepository.save(inventory);
+		return inventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual( skuCode , quantity );
 		
 	}
 	
